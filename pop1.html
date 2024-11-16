@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Popup Example</title>
+  <style>
+    /* The overlay (background) */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* The popup window */
+    .popup {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .close-btn {
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background-color: #ff2a00;
+    }
+
+    /* Style for the menu */
+    .menu-container ul {
+      list-style: none;
+      margin: 10px 0;
+      padding: 0;
+    }
+
+    .menu-container ul li {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    .menu-container ul li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Menu container -->
+<div class="menu-container">
+  <ul id="menu">
+    <li data-item="Bior's Breakfast Special">Bior's Breakfast Special</li>
+    <li data-item="Eggs & Bacon Burger">Eggs & Bacon Burger</li>
+    <li data-item="Avocado & Spinach Burger">Avocado & Spinach Burger</li>
+    <li data-item="Special Special">Special Special</li>
+  </ul>
+</div>
+
+<!-- Overlay for the popup -->
+<div class="overlay" id="popupOverlay">
+  <div class="popup">
+    <p id="popupText">Placeholder Text</p>
+    <button class="close-btn" id="closePopupBtn">Close Popup</button>
+  </div>
+</div>
+
+<script>
+  // Get the elements
+  const popupOverlay = document.getElementById('popupOverlay');
+  const closePopupBtn = document.getElementById('closePopupBtn');
+  const popupText = document.getElementById('popupText');
+  const menu = document.getElementById('menu');
+
+  // Open the popup when a list item is clicked
+  menu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+      const itemText = event.target.getAttribute('data-item');
+      popupText.textContent = `You clicked on: ${itemText}`;
+      popupOverlay.style.display = 'flex';
+    }
+  });
+
+  // Close the popup when the close button is clicked
+  closePopupBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+
+  // Close the popup if anywhere outside the popup is clicked
+  window.addEventListener('click', (event) => {
+    if (event.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Annie+Use+Your+Telescope&family=Bagel+Fat+One&family=Londrina+Shadow&family=Rampart+One&family=Yomogi&display=swap" rel="stylesheet">
+    <style>
+            .rampart-one-regular {
+                font-family: "Rampart One", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            button {
+                margin-top: 15px;
+                margin-bottom: 5px;
+                margin-right: 25%;
+                justify-self: center;
+                display: flex;
+                background-color: aqua;
+                color: black;
+                border-radius: 5px;
+            }
+            button:hover {
+                cursor: pointer;
+            }
+
+            header > nav {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: stretch;
+            }
+            header > nav > div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+            }
+
+
+
+            header > nav > ul {
+                display: flex;
+                justify-content: space-between;
+                width: 250px;
+                list-style: none;
+            }
+            li:hover {
+                cursor: pointer;
+                text-decoration: 2px solid underline rgba(244, 142, 0, 0.857);
+                transform: scale(1.1);
+            }
+
+            img {
+                height:50px;
+                width: auto;
+            }
+
+           
+            .menu-container {
+                display: grid;
+                grid-template-columns: 33% 33% 33%;
+                grid-template-rows: 100%;
+                border: 3px solid rgba(244, 142, 0, 0.857);
+                border-radius: 12px;
+                margin: 5px 5px 5px 5px;
+                padding: 5px 5px;
+                
+            }
+
+            .list-container {
+                justify-content: center;
+                padding-bottom: 10%;
+            }
+
+            #lunch {
+                border: 1px double yellow;
+                border-radius: 5px;
+                
+            } 
+            #breakfast {
+                border: 1px double green;
+                border-radius: 5px;
+                
+            }
+            #dinner {
+                border: 1px double blue;
+                border-radius: 5px;
+                
+            }
+            #breakfast:hover, #lunch:hover, #dinner:hover {
+                transform: scale(1.1);
+
+            } 
+            .title {
+                font-family: "Rampart One", sans-serif;
+                font-size: auto;
+                color: rgba(244, 142, 0, 0.857);
+            }
+            
+            .mainContent > h1 {
+                justify-self: center;
+                width: fit-content;
+                display: flex;
+                padding: 2px;
+                margin-left: 40%;
+            }
+            .list-container {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-container h3 {
+  margin-bottom: 10px;
+  font-family: "Rampart One", sans-serif;
+  font-size: 1.5rem;
+  color: #ff9800;
+  text-align: center;
+}
+
+.list-container li {
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #f4f4f4;
+  border-radius: 5px;
+  background-color: #fdf6e3;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.list-container li:hover {
+  background-color: #ffe0b2;
+  transform: scale(1.05);
+}
+
+.list-container button {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-container button:hover {
+  background-color: #e68900;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+      function Header() {
+        return (
+            <header>
+                <nav>
+                    <div>
+                        <img src="burger.webp" />
+                        <Title />
+                    </div> 
+                    <ul>
+                        <li>Pricing</li>
+                        <li>About</li>
+                        <li>Content</li>
+                    </ul>   
+                </nav>    
+            </header>
+        )
+      }
+
+      function MainContent() {
+        return (
+            <div className="mainContent">
+                <h1 className="menu-title">Menu</h1>
+                <div class="menu-container">
+                    <ul class="list-container" id="breakfast">
+                        <h3>Breakfast</h3>
+                        <li data-item="Bior's Breakfast Special">Bior's Breakfast Special</li>
+                        <li data-item="Eggs & Bacon Burger">Eggs & Bacon Burger</li>
+                        <li data-item="Jersey Girls Burger">Jersey Girls Burger</li>
+                        <li data-item="Special Special">Special Special</li>
+                        <Button />
+                    </ul>
+                    <ul class="list-container" id="lunch">
+                        <h3>Lunch</h3>
+                        <li>Bior's Lunch Special</li>
+                        <li>Avacado & Spinach Burger</li>
+                        <li>Arvo Special</li>
+                        <li>Special Special</li>
+                        <Button />
+                    </ul>
+                    <ul class="list-container" id="dinner">
+                        <h3>Dinner</h3>
+                        <li>Winner Winner Chicken Dinner!</li>
+                        <li>The Greasiest Burger Ever</li>
+                        <li>Night Special</li>
+                        <li>Vegan Special</li>
+                        <Button />
+                    </ul>
+                    
+                </div>
+                
+                
+            </div>
+            
+        )
+      }
+      function Title() {
+        return (
+            <h1 className='title'>Bior's Burgers</h1>
+        )
+      }
+
+      function Footer() {
+        return (
+            <small>© 2024 MBK Digital. All rights reserved.</small>
+      )
+      }
+
+      function App() {
+        return (
+            <div>
+                <Header />
+                <MainContent />   
+                <Footer /> 
+            </div>
+        )
+    }
+
+        function Button() {
+            return (
+                <button>Click Me To Order</button>
+            )
+        }
+        
+     
+
+      ReactDOM.render(<App />, document.getElementById('root'))
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+  </body>
+</html>
